@@ -5,7 +5,7 @@ Yelp Boba Finder is a web application that allows users to search for boba shops
 
 I decided to use Axios to handle the backend requests in conjunction with a radio button selection for the frontend. since there are only 3 location selections, a preset selection made the most sense, but if a user-provided location were desired, then current location functionality and/or an address entry bar would be a better fit. I selected Axios due to it's automatic request and response transformation and better error handling, in addition to simpler syntax.
 
-Given more time, a better approach would be to use a backend proxy for the API calls, and provide a .env file for secret management, specifically the API key. Additionally, external secret management could also be used.
+Given more time, a better approach would be to use a backend proxy for the API calls, and provide a .env file for secret management, specifically the API key. Additionally, external secret management could also be used to streamline the process and avoid potential issues regarding local .env file management.
 
 ## Features
 - Location selection via radio buttons for three placeholder locations.
