@@ -46,7 +46,7 @@ netflix-tech-screen
    ```
    npm install
    ```
-4. Open the file src/api/yelpApi and on line 3, replace 'Add API Key Here' with your API key
+4. Open the file src/api/yelpApi and on the line 4 variable "API_KEY", replace 'Add API Key Here' with your API key
 5. Start the development server:
    ```
    npm start
