@@ -3,6 +3,7 @@ import LocationSelector from './components/LocationSelector';
 import ResultsTable from './components/ResultsTable';
 import LoadMoreButton from './components/LoadMoreButton';
 import { fetchBobaShops } from './api/yelpApi';
+import { AppBar, Toolbar, Typography, Container, Button, Box } from '@mui/material';
 
 const LOCATIONS = [
     { id: 1, name: 'Los Gatos', address: '121 Albright Wy, Los Gatos, CA 95032' },
@@ -18,7 +19,7 @@ const App = () => {
     const [hasMore, setHasMore] = useState(false);
 
     useEffect(() => {
-        if (!selectedLocation) return; // <-- Add this line
+        if (!selectedLocation) return;
         loadBobaShops(offset === 0);
         // eslint-disable-next-line
     }, [selectedLocation, offset]);
@@ -51,25 +52,39 @@ const App = () => {
     };
 
     return (
-        <div>
-            <h1>Boba Shop Finder</h1>
-            {!selectedLocation ? (
-                <LocationSelector
-                    locations={LOCATIONS}
-                    onLocationSubmit={handleLocationSubmit}
-                />
-            ) : (
-                <>
-                    <ResultsTable bobaShops={bobaShops} />
-                    {hasMore && (
-                        <LoadMoreButton onLoadMore={handleLoadMore} loading={loading} />
-                    )}
-                    <button onClick={handleChangeLocation} style={{ marginTop: 16 }}>
-                        Change Location
-                    </button>
-                </>
-            )}
-        </div>
+        <>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Boba Shop Finder
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Container maxWidth="md" sx={{ mt: 4 }}>
+                {!selectedLocation ? (
+                    <LocationSelector
+                        locations={LOCATIONS}
+                        onLocationSubmit={handleLocationSubmit}
+                    />
+                ) : (
+                    <>
+                        <ResultsTable bobaShops={bobaShops} />
+                        {hasMore && (
+                            <LoadMoreButton onLoadMore={handleLoadMore} loading={loading} />
+                        )}
+                        <Box mt={2}>
+                            <Button
+                                variant="outlined"
+                                color="secondary"
+                                onClick={handleChangeLocation}
+                            >
+                                Change Location
+                            </Button>
+                        </Box>
+                    </>
+                )}
+            </Container>
+        </>
     );
 };
 

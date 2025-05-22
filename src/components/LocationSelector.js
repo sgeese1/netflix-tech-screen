@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, Button, Paper, Box } from '@mui/material';
 
 const LocationSelector = ({ locations, onLocationSubmit }) => {
     const [selected, setSelected] = useState(null);
@@ -11,26 +12,31 @@ const LocationSelector = ({ locations, onLocationSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Select a Location:</h3>
-            {locations.map(location => (
-                <div key={location.id}>
-                    <label>
-                        <input
-                            type="radio"
-                            name="location"
-                            value={location.id}
-                            checked={selected === location.id}
-                            onChange={() => setSelected(location.id)}
-                        />
-                        {location.name} ({location.address})
-                    </label>
-                </div>
-            ))}
-            <button type="submit" disabled={!selected}>
-                Select
-            </button>
-        </form>
+        <Paper sx={{ p: 3, mb: 3 }}>
+            <form onSubmit={handleSubmit}>
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Select a Location:</FormLabel>
+                    <RadioGroup
+                        value={selected || ''}
+                        onChange={e => setSelected(Number(e.target.value))}
+                    >
+                        {locations.map(location => (
+                            <FormControlLabel
+                                key={location.id}
+                                value={location.id}
+                                control={<Radio />}
+                                label={`${location.name} (${location.address})`}
+                            />
+                        ))}
+                    </RadioGroup>
+                    <Box mt={2}>
+                        <Button type="submit" variant="contained" disabled={!selected}>
+                            Select
+                        </Button>
+                    </Box>
+                </FormControl>
+            </form>
+        </Paper>
     );
 };
 

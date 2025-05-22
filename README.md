@@ -11,11 +11,12 @@ Yelp Boba Finder is a web application that allows users to search for boba shops
 ## Technologies Used
 - React
 - Axios
+- Material UI
 - Yelp Business Search API
 
 ## Project Structure
 ```
-yelp-boba-finder
+netflix-tech-screen
 ├── public
 │   └── index.html
 ├── src
@@ -35,30 +36,24 @@ yelp-boba-finder
 ## Setup Instructions
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/sgeese1/netflix-tech-screen.git
    ```
 2. Navigate to the project directory:
    ```
-   cd yelp-boba-finder
+   cd netflix-tech-screen
    ```
 3. Install dependencies:
    ```
    npm install
    ```
-4. Create a `.env` file in the root directory and add your Yelp API key:
-   ```
-   REACT_APP_YELP_API_KEY=your_api_key_here
-   ```
+4. Open the file src/api/yelpApi and on line 3, replace 'Add API Key Here' with your API key
 5. Start the development server:
    ```
    npm start
    ```
 
 ## Usage
-- Open the application in your web browser.
+- Open the application in your web browser if it doesn't open automatically (localhost:3000).
 - Select a location using the radio buttons.
 - View the list of boba shops displayed in the table.
 - Click "Load More" to fetch additional results.
-
-## License
-This project is licensed under the MIT License.

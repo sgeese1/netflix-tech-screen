@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// If more time allowed, use backend proxy and env file to store API key, or use a secrets provider
 const API_KEY = 'Add API Key Here'; // Replace with your Yelp API key
 const BASE_URL = 'https://api.yelp.com/v3/businesses/search';
 
